@@ -1,0 +1,14 @@
+
+module bandwidth_controller(
+    input [7:0] demand1, demand2,
+    input [2:0] priority1, priority2,
+    output reg [7:0] alloc1, alloc2
+);
+reg [15:0] total_weight;
+
+always @(*) begin
+    total_weight = (demand1 * priority1) + (demand2 * priority2);
+    alloc1 = (demand1 * priority1 * 100) / total_weight;
+    alloc2 = (demand2 * priority2 * 100) / total_weight;
+end
+endmodule
