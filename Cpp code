@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    float total_bw;
+    cout << "Enter total available bandwidth (Mbps): ";
+    cin >> total_bw;
+    cout << "Enter number of users: ";
+    cin >> n;
+
+    float req[n], priority[n], alloc[n], total_weight = 0;
+    for (int i = 0; i < n; i++) {
+        cout << "\nUser " << i + 1 << " requested bandwidth (Mbps): ";
+        cin >> req[i];
+        cout << "Priority (1-5): ";
+        cin >> priority[i];
+        total_weight += req[i] * priority[i];
+    }
+
+    cout << "\n--- Bandwidth Allocation Result ---\n";
+    for (int i = 0; i < n; i++) {
+        alloc[i] = (req[i] * priority[i] / total_weight) * total_bw;
+        cout << "User " << i + 1 << " gets " << alloc[i] << " Mbps\n";
+    }
+    return 0;
+}
