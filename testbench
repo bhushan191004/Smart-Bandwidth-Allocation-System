@@ -1,0 +1,14 @@
+module test;
+reg [7:0] demand1, demand2;
+reg [2:0] priority1, priority2;
+wire [7:0] alloc1, alloc2;
+
+bandwidth_controller bc(demand1, demand2, priority1, priority2, alloc1, alloc2);
+
+initial begin
+    demand1 = 30; priority1 = 5;
+    demand2 = 20; priority2 = 3;
+    #10;
+    $display("Allocation 1 = %d%%, Allocation 2 = %d%%", alloc1, alloc2);
+end
+endmodule
