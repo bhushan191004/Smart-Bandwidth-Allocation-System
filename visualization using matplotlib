@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+
+users = ['User1', 'User2', 'User3']
+allocation = [35.7, 17.8, 46.4]
+
+plt.bar(users, allocation)
+plt.title('Bandwidth Allocation Result')
+plt.xlabel('Users')
+plt.ylabel('Bandwidth (Mbps)')
+plt.show()
